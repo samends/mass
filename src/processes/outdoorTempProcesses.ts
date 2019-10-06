@@ -12,9 +12,9 @@ const startOutdoorTemperatureCommand = createCommand(({ at, get, path, payload, 
     ];
 });
 
-const loadOutdoorTemperatureCommand = createCommand(async ({ at, get, path, payload, state }) => {
-    console.log('making request');
-    const outdoorWeatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=${API_KEY}`, {
+const loadOutdoorTemperatureCommand = createCommand<{zipcode: string}>(async ({ at, get, path, payload, state }) => {
+    const { zipcode } = payload;
+    const outdoorWeatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=${API_KEY}`, {
         method: 'GET'
     });
     return [
