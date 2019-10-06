@@ -8,18 +8,19 @@ const factory = create({ store, icache, ensure });
 export default factory(function App({ middleware: { store: { get, path }, icache, ensure }}) {
     const outdoorTemperature = ensure.ensureOutdoorTemperature();
     if (outdoorTemperature) {
+        console.log('outdoorTemp', outdoorTemperature);
         return (
-            <div>
+            <div key="app">
                 <h1>This is the grand tempurature converting project!</h1>
-                <h2>The current temperature at lat of {outdoorTemperature.latitude.toString()} and long of {outdoorTemperature.longitude.toString()} is: </h2>
-                <p>Summary: {outdoorTemperature.currently.summary}</p>
-                <p>Temperature: {outdoorTemperature.currently.temperature.toString()}</p>
+                <h2>The current temperature at lat of {outdoorTemperature.coord.lat.toString()} and long of {outdoorTemperature.coord.lon.toString()} is: </h2>
+                <p>Summary: {outdoorTemperature.main.temp.toString()}</p>
+                <p>Temperature: {outdoorTemperature.weather[0].main.toString()}</p>
             </div>
             
         );
     } else {
         return (
-            <div> Loading... </div>
+            <div key="loading"> Loading... </div>
         )
     }
 });

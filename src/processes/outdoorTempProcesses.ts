@@ -14,7 +14,7 @@ const startOutdoorTemperatureCommand = createCommand(({ at, get, path, payload, 
 
 const loadOutdoorTemperatureCommand = createCommand(async ({ at, get, path, payload, state }) => {
     console.log('making request');
-    const outdoorWeatherData = await fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API_KEY}/37.8267,-122.4233`, {
+    const outdoorWeatherData = await fetch(`https://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=${API_KEY}`, {
         method: 'GET'
     });
     return [
