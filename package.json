@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "dojo build --mode dev --watch --serve",
-    "build": "dojo build --mode dist",
+    "build": "npx dojo build --mode dist",
     "build:dev": "dojo build --mode dev",
     "test": "dojo test",
     "test:unit": "dojo build --mode unit && dojo test --unit --config local",
