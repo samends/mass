@@ -3,3 +3,4 @@ _build/
 output/
 .cert/
 .env
+src/api_key.ts

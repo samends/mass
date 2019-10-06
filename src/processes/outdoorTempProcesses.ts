@@ -2,9 +2,7 @@ import { createCommandFactory, createProcess } from '@dojo/framework/stores/proc
 import { State } from '../interfaces';
 import { replace } from "@dojo/framework/stores/state/operations";
 import { fetch } from '../util/fetch';
-
-// This is a hack please go to darksky.net and get a api key!
-const API_KEY = 'BLUEBERRIES';
+import { API_KEY } from '../api_key';
 
 const createCommand = createCommandFactory<State>();
 
